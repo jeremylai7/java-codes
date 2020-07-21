@@ -17,7 +17,6 @@ public class KeyGenerateUtil {
 
     public static void main(String[] args) {
         jdkRsa();
-        String aa = "123";
     }
 
     private static void jdkRsa(){

@@ -16,6 +16,8 @@ import java.security.spec.X509EncodedKeySpec;
  */
 public class RsaUtil {
 
+    public static String ALGORITHM = "RSA";
+
     /**
      * 私钥加密
      * @param rsaPrivateKey
@@ -25,9 +27,9 @@ public class RsaUtil {
     public static String privateKeyEncrypt(String rsaPrivateKey,String source){
         PKCS8EncodedKeySpec pkcs8EncodedKeySpec = new PKCS8EncodedKeySpec(Base64.decodeBase64(rsaPrivateKey));
         try {
-            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+            KeyFactory keyFactory = KeyFactory.getInstance(ALGORITHM);
             PrivateKey privateKey = keyFactory.generatePrivate(pkcs8EncodedKeySpec);
-            Cipher cipher = Cipher.getInstance("RSA");
+            Cipher cipher = Cipher.getInstance(ALGORITHM);
             cipher.init(Cipher.ENCRYPT_MODE,privateKey);
             byte[] result = cipher.doFinal(source.getBytes());
             return Base64.encodeBase64String(result);
@@ -46,9 +48,9 @@ public class RsaUtil {
     public static String publicKeyDecrypt(String rsaPublicKey,String source){
         X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(Base64.decodeBase64(rsaPublicKey));
         try {
-            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+            KeyFactory keyFactory = KeyFactory.getInstance(ALGORITHM);
             PublicKey publicKey = keyFactory.generatePublic(x509EncodedKeySpec);
-            Cipher cipher = Cipher.getInstance("RSA");
+            Cipher cipher = Cipher.getInstance(ALGORITHM);
             cipher.init(Cipher.DECRYPT_MODE,publicKey);
             byte[] result = cipher.doFinal(Base64.decodeBase64(source));
             return new String(result);
@@ -67,9 +69,9 @@ public class RsaUtil {
     public static String publicKeyEncrypt(String rsaPublicKey, String source){
         X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(Base64.decodeBase64(rsaPublicKey));
         try {
-            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+            KeyFactory keyFactory = KeyFactory.getInstance(ALGORITHM);
             PublicKey publicKey = keyFactory.generatePublic(x509EncodedKeySpec);
-            Cipher cipher = Cipher.getInstance("RSA");
+            Cipher cipher = Cipher.getInstance(ALGORITHM);
             cipher.init(Cipher.ENCRYPT_MODE,publicKey);
             byte[] result = cipher.doFinal(source.getBytes());
             return Base64.encodeBase64String(result);
@@ -88,9 +90,9 @@ public class RsaUtil {
     public static String privateKeyDecrypt(String rsaPrivateKey,String source){
         PKCS8EncodedKeySpec pkcs8EncodedKeySpec = new PKCS8EncodedKeySpec(Base64.decodeBase64(rsaPrivateKey));
         try {
-            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+            KeyFactory keyFactory = KeyFactory.getInstance(ALGORITHM);
             PrivateKey privateKey = keyFactory.generatePrivate(pkcs8EncodedKeySpec);
-            Cipher cipher = Cipher.getInstance("RSA");
+            Cipher cipher = Cipher.getInstance(ALGORITHM);
             cipher.init(Cipher.DECRYPT_MODE,privateKey);
             byte[] result = cipher.doFinal(Base64.decodeBase64(source));
             return new String(result);
