@@ -12,6 +12,7 @@
         <module>design-pattern</module>
         <module>data-structure-algorithm</module>
         <module>encryption-algorithm</module>
+        <module>collection</module>
     </modules>
 
 
