@@ -5,7 +5,7 @@ import org.junit.Test;
 /**
  * @Author: laizc
  * @Date: Created in  2020-11-30
- * @desc:
+ * @desc: 排序
  */
 public class Sort {
 	
@@ -21,7 +21,6 @@ public class Sort {
 	 * 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
 	 *
 	 * 时间复杂度 O(n2)
-	 * 空间复杂度 O(n)
 	 */
 	@Test
 	public void bubbleSort(){
@@ -36,6 +35,33 @@ public class Sort {
 			}
 		}
 		System.out.println(array);
+	}
+
+	/**
+	 * desc 选择排序
+	 * 首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置
+     *
+	 * 再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。
+     *
+	 * 重复第二步，直到所有元素均排序完毕。
+	 * 时间复杂度 O(n2)
+	 */
+	@Test
+	public void selectionSort(){
+		int length = array.length;
+		for (int i = 0; i < length ; i++) {
+			int minIndex = i;
+			for (int j = i; j < length; j++) {
+				if (array[j] < array[minIndex]){
+					minIndex = j;
+				}
+			}
+			int temp = array[minIndex];
+            array[minIndex] = array[i];
+			array[i] = temp;
+		}
+		System.out.println(array);
+
 	}
 
 }
