@@ -11,6 +11,12 @@ public class Sort {
 	
 	private static int[] array = {1,3,5,6,8,2,7,4};
 
+	private void print(){
+		for (int i = 0; i < array.length; i++) {
+			System.out.print(array[i] + " ");
+		}
+	}
+
 	/** desc 冒泡排序
 	 * 比较相邻的元素。如果第一个比第二个大，就交换他们两个。
 	 *
@@ -34,7 +40,7 @@ public class Sort {
 				}
 			}
 		}
-		System.out.println(array);
+		print();
 	}
 
 	/**
@@ -60,9 +66,38 @@ public class Sort {
             array[minIndex] = array[i];
 			array[i] = temp;
 		}
-		System.out.println(array);
+		print();
 	}
 
+	/**
+	 * desc 插入排序
+	 * 将第一待排序序列第一个元素看做一个有序序列，把第二个元素到最后一个元素当成是未排序序列。
+     *
+	 * 从头到尾依次扫描未排序序列，将扫描到的每个元素插入有序序列的适当位置。（如果待插入的元素与有序序列中的某个元素相等，则将待插入元素插入到相等元素的后面）
+	 * 时间复杂度 O(n2)
+	 */
+	@Test
+	public void insertSort(){
+		int length = array.length;
+		for (int i = 1; i < length; i++) {
+			int temp = array[i];
+			int j = i -1;
+			for (;j >= 0; --j){
+				if (array[j] > temp){
+					array[j+1] = array[j];
+				}else {
+					break;
+				}
+			}
+			array[j+1] = temp;
+		}
+		print();
 
+	}
+
+	@Test
+	public void quickSort(){
+
+	}
 
 }
