@@ -97,7 +97,7 @@ public class Sort {
 
 	@Test
 	public void quickSort(){
-
+		//添加快速排序
 	}
 
 }
