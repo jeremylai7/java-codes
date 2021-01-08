@@ -26,6 +26,7 @@ public class SerializationTest implements Serializable{
 		}catch (IOException e) {
 			e.printStackTrace();
 
+
 		}
 	}
 
