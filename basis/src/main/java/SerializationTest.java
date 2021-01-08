@@ -7,8 +7,11 @@ import java.io.*;
  * @Date: Created in  2021-01-08
  * @desc: 序列化测试
  */
-public class SerializationTest {
+public class SerializationTest implements Serializable{
 
+	/**
+	 * 对象序列化，将对象保存在磁盘中，或者在网络直接传输对象
+	 */
 	@Test
 	public void test2() {
 		User user = new User();
@@ -25,6 +28,9 @@ public class SerializationTest {
 		}
 	}
 
+	/**
+	 * 对象反序列化：从文件读取序列化对象，
+	 */
 	@Test
 	public void test3() {
 		User user = null;
