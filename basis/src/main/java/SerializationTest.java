@@ -25,6 +25,7 @@ public class SerializationTest implements Serializable{
 			fileOutputStream.close();
 		}catch (IOException e) {
 			e.printStackTrace();
+
 		}
 	}
 
