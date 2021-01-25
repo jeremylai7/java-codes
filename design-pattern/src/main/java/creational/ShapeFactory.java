@@ -1,6 +1,8 @@
 package creational;
 
-import javax.xml.stream.FactoryConfigurationError;
+/**
+ * 创建一个接口和实现类，然后创建一个工厂方法，根据名称返回不同的实例
+ */
 
 public class ShapeFactory {
     //使用 getShape 方法获取形状类型的对象
