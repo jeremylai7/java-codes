@@ -1,6 +1,4 @@
-package creational;
-
-import javax.xml.stream.FactoryConfigurationError;
+package factory;
 
 public class ShapeFactory {
     //使用 getShape 方法获取形状类型的对象
@@ -20,6 +18,7 @@ public class ShapeFactory {
 
     public static void main(String[] args) {
         ShapeFactory factory = new ShapeFactory();
+
 
         Shape shape = factory.getShape("Circle");
         shape.draw();
