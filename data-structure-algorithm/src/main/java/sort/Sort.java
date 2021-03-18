@@ -9,7 +9,7 @@ import org.junit.Test;
  */
 public class Sort {
 	
-	private static int[] array = {1,3,5,6,8,2,7,4};
+	private static int[] array = {1,3,5,6,8,2,7,4,3};
 
 	private void print(){
 		for (int i = 0; i < array.length; i++) {
@@ -95,9 +95,48 @@ public class Sort {
 
 	}
 
+	/**
+	 * desc 快速排序 思想：分治法
+	 * 1、从数组中选取一个数为基准数，通常是选择数组的第一个数
+	 * 2、比基准数大的放在基准数的左边，比基础数大的放在基准数的右边
+	 * 3、对左右分区重复第二步，直到分区只有一个数
+	 *
+	 *  时间复杂度 O(nlogn)
+	 */
 	@Test
 	public void quickSort(){
-		//添加快速排序
+		sort(array,0,array.length -1);
+		print();
+	}
+
+	private void sort(int a[],int left,int right){
+		int i,j,index;
+		if (left > right) {
+			return;
+		}
+		i = left;
+		j = right;
+		//用子表的第一个数做基准
+		index = array[i];
+		while (i < j) {
+			while (i < j && a[j] > index) {
+				j--;
+			}
+			if (i < j) {
+				a[i] = a[j];
+				i++;
+			}
+			while (i < j && a[i] < index) {
+				i++;
+			}
+			if (i < j) {
+				a[j] = a[i];
+				j--;
+			}
+		}
+		a[i] = index;
+		sort(a,left,i-1);
+		sort(a,i+1,right);
 	}
 
 }
