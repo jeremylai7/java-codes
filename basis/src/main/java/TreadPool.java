@@ -68,7 +68,7 @@ public class TreadPool {
     }
 
     /**
-     * 个单线程化的线程池
+     *   哈哈哈哈单线程化的线程池
      */
     @Test
     public void test4() {
