@@ -21,7 +21,7 @@ public class ThreadPoolTest {
 	public void test() {
 		BlockingQueue<Runnable> workQueue = new LinkedBlockingQueue<>(5);
 		ThreadPoolExecutor executor =new ThreadPoolExecutor(corePoolSize,maximumPoolSize,1L, TimeUnit.MILLISECONDS,workQueue);
-		//执行任务，创建线程
+		//执行任务，未达到核心线程数之前，创建线程
 		executor.execute(new TestTask());
 		executor.execute(new TestTask());
 		executor.execute(new TestTask());
