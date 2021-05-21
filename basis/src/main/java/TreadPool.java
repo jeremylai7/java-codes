@@ -35,24 +35,24 @@ public class TreadPool {
      * 设置固定大小的线程池
      */
     @Test
-    public void fied() {
+    public void fixed() {
         ExecutorService executorService = Executors.newFixedThreadPool(3);
         for (int i = 0; i < 10; i++) {
             int index = i;
             executorService.execute(() -> {
                 //获取线程名称，默认格式:pool-1-threa-1
                 System.out.println(System.currentTimeMillis() + " " + Thread.currentThread().getName() + " " +index);
-                try {
-                    Thread.sleep(2000);
+                /*try {
+                    Thread.sleep(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
-                }
+                }*/
             });
         }
     }
 
     /**
-     *
+     * 定长线程池，支持定时及周期性任务执行
      */
     @Test
     public void schedule() {
@@ -68,7 +68,7 @@ public class TreadPool {
     }
 
     /**
-     *   哈哈哈哈单线程化的线程池
+     *   单线程化的线程池
      */
     @Test
     public void test4() {
