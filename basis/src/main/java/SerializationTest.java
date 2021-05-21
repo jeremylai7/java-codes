@@ -49,4 +49,35 @@ public class SerializationTest implements Serializable{
 		}
 		System.out.println(user.getName() + " " + user.getPassword());
 	}
+
+	@Test
+	public void transientTest() {
+		UserTransient user = new UserTransient();
+		user.setName("aa");
+		user.setPassword("bb");
+		//序列化
+		try {
+			FileOutputStream fileOutputStream = new FileOutputStream("/aa.txt");
+			ObjectOutputStream outputStream = new ObjectOutputStream(fileOutputStream);
+			outputStream.writeObject(user);
+			outputStream.close();
+			fileOutputStream.close();
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+		//反序列
+		try {
+			FileInputStream fileInputStream = new FileInputStream("/aa.txt");
+			ObjectInputStream inputStream = new ObjectInputStream(fileInputStream);
+			user = (UserTransient) inputStream.readObject();
+			inputStream.close();
+			fileInputStream.close();
+		}catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		System.out.println("userName:" + user.getName());
+		System.out.println("password:" +user.getPassword());
+	}
 }
