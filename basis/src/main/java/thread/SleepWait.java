@@ -15,51 +15,41 @@ public class SleepWait {
 
     public static void main(String[] args) {
         final Object lock = new Object();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("thread A is 等待锁");
-                synchronized (lock) {
-                    try {
-                        System.out.println("thread A 获得锁");
-                        Thread.sleep(20);
-                        System.out.println("thread A do 等到方法");
-                        lock.wait(1000);
-                        System.out.println("thread A is done");
-                    }catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
+        new Thread(() -> {
+            System.out.println("thread A is 等待锁");
+            synchronized (lock) {
+                try {
+                    System.out.println("thread A 获得锁");
+                    Thread.sleep(20);
+                    System.out.println("thread A do 等到方法");
+                    lock.wait(1000);
+                    System.out.println("thread A is done");
+                }catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
+
             }
-        });
+        }).start();
         try {
             Thread.sleep(10);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("thread B is 等待锁");
-                synchronized (lock) {
-                    try {
-                        System.out.println("thread B 获得锁");
-                        lock.wait(1000);
-                        System.out.println("thread B do 等到方法");
-                        Thread.sleep(20);
-                        System.out.println("thread B is done");
-                    }catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
+        new Thread(() -> {
+            System.out.println("thread B is 等待锁");
+            synchronized (lock) {
+                try {
+                    System.out.println("thread B 获得锁");
+                    lock.wait(1000);
+                    System.out.println("thread B do 等到方法");
+                    Thread.sleep(20);
+                    System.out.println("thread B is done");
+                }catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
+
             }
-        });
-
-
-
-
+        }).start();
     }
 
 }
