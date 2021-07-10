@@ -9,7 +9,9 @@ import org.junit.Test;
  */
 public class Sort {
 	
-	private static int[] array = {1,3,5,6,8,2,7,4,3};
+	//private static int[] array = {1,3,5,6,8,2,7,4,3};
+
+	private static int[] array = {5,4,2,3,8};
 
 	private void print(){
 		for (int i = 0; i < array.length; i++) {
@@ -103,7 +105,11 @@ public class Sort {
 	 *
 	 *  时间复杂度 O(nlogn)
 	 *
-	 *
+	 *  具体实现步骤
+	 *  1、取出基准值，为了方面后面的赋值
+	 *  2、从右边往左遍历，找到比基准值小的将改值赋值给基准值的位置
+	 *  3、从左往右遍历，找到比基准值大的放在第2步在的位置
+	 *  4、基准值放在第3步的的位置
 	 */
 	@Test
 	public void quickSort(){
@@ -118,9 +124,10 @@ public class Sort {
 		}
 		i = left;
 		j = right;
-		//用子表的第一个数做基准
+		//选取数组的第一个数为基准值
 		index = array[i];
 		while (i < j) {
+			//右边小于基准值停止遍历
 			while (i < j && a[j] > index) {
 				j--;
 			}
@@ -128,6 +135,7 @@ public class Sort {
 				a[i] = a[j];
 				i++;
 			}
+			//左边大于基准值停止遍历
 			while (i < j && a[i] < index) {
 				i++;
 			}
