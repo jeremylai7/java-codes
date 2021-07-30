@@ -78,6 +78,7 @@ public class SerializationTest implements Serializable{
 			e.printStackTrace();
 		}
 		System.out.println("userName:" + user.getName());
+		//password null 表明 transient 修饰的字段不会被序列化
 		System.out.println("password:" +user.getPassword());
 	}
 }
