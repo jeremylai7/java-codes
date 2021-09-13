@@ -1,4 +1,4 @@
-package concurrent.juc.atomic;
+package juc;
 
 import org.junit.Test;
 

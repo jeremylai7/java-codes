@@ -1,4 +1,4 @@
-package thread.threadpool;
+package threadpool;
 
 import org.junit.Test;
 
