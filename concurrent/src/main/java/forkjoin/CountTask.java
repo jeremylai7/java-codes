@@ -18,7 +18,7 @@ public class CountTask extends RecursiveTask<Integer>{
 
 	private int end;
 
-	public CountTask(int start,int end) {
+	public CountTask(int start, int end) {
 		this.start = start;
 		this.end = end;
 	}
