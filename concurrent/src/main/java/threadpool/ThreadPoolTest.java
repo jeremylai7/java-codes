@@ -2,10 +2,7 @@ package threadpool;
 
 import org.junit.Test;
 
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * @Author: laizc
@@ -20,7 +17,7 @@ public class ThreadPoolTest {
 	@Test
 	public void test() {
 		BlockingQueue<Runnable> workQueue = new LinkedBlockingQueue<>(5);
-		ThreadPoolExecutor executor =new ThreadPoolExecutor(corePoolSize,maximumPoolSize,1L, TimeUnit.SECONDS,workQueue);
+		ExecutorService executor =new ThreadPoolExecutor(corePoolSize,maximumPoolSize,1L, TimeUnit.SECONDS,workQueue);
 		//执行任务，未达到核心线程数之前，创建线程
 		executor.execute(new TestTask());
 		executor.execute(new TestTask());
