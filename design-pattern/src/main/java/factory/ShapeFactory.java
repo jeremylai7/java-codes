@@ -1,5 +1,9 @@
 package factory;
 
+import factory.model.Circle;
+import factory.model.Rectangle;
+import factory.model.Square;
+
 /**
  * 创建一个接口和实现类，然后创建一个工厂方法，根据名称返回不同的实例
  */
@@ -22,7 +26,6 @@ public class ShapeFactory {
 
     public static void main(String[] args) {
         ShapeFactory factory = new ShapeFactory();
-
 
         Shape shape = factory.getShape("Circle");
         shape.draw();

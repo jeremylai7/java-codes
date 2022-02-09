@@ -1,6 +1,8 @@
-package factory;
+package factory.model;
 
-public class Circle implements Shape{
+import factory.Shape;
+
+public class Circle implements Shape {
 
     @Override
     public void draw() {

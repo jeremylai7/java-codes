@@ -1,5 +1,8 @@
 package factory;
 
+import factory.model.Circle;
+import factory.model.Rectangle;
+
 /**
  * @Author: laizc
  * @Date: Created in  2021-01-25

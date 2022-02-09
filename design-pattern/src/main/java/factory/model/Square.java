@@ -1,6 +1,8 @@
-package factory;
+package factory.model;
 
-public class Square implements Shape{
+import factory.Shape;
+
+public class Square implements Shape {
 
     @Override
     public void draw() {

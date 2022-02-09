@@ -1,6 +1,8 @@
-package factory;
+package factory.model;
 
-public class Rectangle implements Shape{
+import factory.Shape;
+
+public class Rectangle implements Shape {
 
     @Override
     public void draw() {
