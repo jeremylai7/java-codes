@@ -1,7 +1,5 @@
 package factory.model;
 
-import factory.Shape;
-
 public class Square implements Shape {
 
     @Override

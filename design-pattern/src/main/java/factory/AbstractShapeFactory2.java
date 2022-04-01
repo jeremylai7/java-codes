@@ -1,5 +1,7 @@
 package factory;
 
+import factory.model.Shape;
+
 /**
  * @Author: laizc
  * @Date: Created in  2021-01-25

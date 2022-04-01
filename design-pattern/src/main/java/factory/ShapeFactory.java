@@ -2,6 +2,7 @@ package factory;
 
 import factory.model.Circle;
 import factory.model.Rectangle;
+import factory.model.Shape;
 import factory.model.Square;
 
 /**
