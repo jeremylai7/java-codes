@@ -32,4 +32,17 @@ public class OrderThread implements Runnable{
 		}
 
 	}
+
+	private synchronized void aa() {
+		System.out.println();
+	}
+
+	private static synchronized void bb() {
+		System.out.println();
+		synchronized (TicketThread.class) {
+			System.out.println();
+		}
+	}
+
+
 }

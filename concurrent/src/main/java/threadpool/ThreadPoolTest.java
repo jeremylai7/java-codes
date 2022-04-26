@@ -15,7 +15,7 @@ public class ThreadPoolTest {
 	int maximumPoolSize = 5;
 
 	@Test
-	public void test() {
+	public  void test() {
 		BlockingQueue<Runnable> workQueue = new LinkedBlockingQueue<>(5);
 		ExecutorService executor =new ThreadPoolExecutor(corePoolSize,maximumPoolSize,1L, TimeUnit.SECONDS,workQueue);
 		//执行任务，未达到核心线程数之前，创建线程
@@ -32,6 +32,7 @@ public class ThreadPoolTest {
 		executor.execute(new TestTask());
 		executor.execute(new TestTask());
 		//任务大于最大线程数,执行拒绝策略
+
 		executor.execute(new TestTask());
 	}
 }
