@@ -19,32 +19,22 @@ public class ThreadPoolTest {
 		BlockingQueue<Runnable> workQueue = new LinkedBlockingQueue<>(5);
 		ExecutorService executor =new ThreadPoolExecutor(corePoolSize,maximumPoolSize,1L, TimeUnit.SECONDS,workQueue);
 		//执行任务，未达到核心线程数之前，创建线程
-		executor.execute(new TestTask());
-		executor.execute(new TestTask());
-		executor.execute(new TestTask());
+		executor.execute(new TaskThread());
+		executor.execute(new TaskThread());
+		executor.execute(new TaskThread());
 		//核心线程满了，阻塞队列未满，任务添加到队列中
-		executor.execute(new TestTask());
-		executor.execute(new TestTask());
-		executor.execute(new TestTask());
-		executor.execute(new TestTask());
-		executor.execute(new TestTask());
+		executor.execute(new TaskThread());
+		executor.execute(new TaskThread());
+		executor.execute(new TaskThread());
+		executor.execute(new TaskThread());
+		executor.execute(new TaskThread());
 		//阻塞队列满了，任务未达到最大线程数
-		executor.execute(new TestTask());
-		executor.execute(new TestTask());
+		executor.execute(new TaskThread());
+		executor.execute(new TaskThread());
 		//任务大于最大线程数,执行拒绝策略
 
-		executor.execute(new TestTask());
+		executor.execute(new TaskThread());
 	}
 }
 
-class TestTask implements Runnable{
 
-	@Override
-	public void run() {
-		try {
-			TimeUnit.DAYS.sleep(1);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
-}
