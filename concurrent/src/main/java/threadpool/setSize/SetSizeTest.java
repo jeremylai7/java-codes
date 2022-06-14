@@ -12,21 +12,22 @@ import java.util.concurrent.*;
  **/
 public class SetSizeTest {
 
-    private static int coreSize = 3;
+    private static int coreSize = 26;
 
     private static ThreadPoolExecutor threadPool = new ThreadPoolExecutor(coreSize,coreSize,10, TimeUnit.SECONDS,new ArrayBlockingQueue<>(1000),new ThreadPoolExecutor.DiscardOldestPolicy());
 
     public static void main(String[] args) throws InterruptedException, ExecutionException, TimeoutException {
         int cores = Runtime.getRuntime().availableProcessors();
-        System.out.println("CPU核数：" + cores + " ");
-        int requestNum = 10;
+        System.out.println("CPU核数：" + cores + " 线程数：" + threadPool.getCorePoolSize());
+        int requestNum = 50;
         List<Future<?>> futureList = new ArrayList<>();
 
         Vector<Long> wholeTimeList = new Vector<>();
         Vector<Long> runTimeList = new Vector<>();
 
         for (int i = 0; i < requestNum; i++) {
-            Future<?> future = threadPool.submit(new CpuTypeTest(runTimeList,wholeTimeList));
+            //Future<?> future = threadPool.submit(new CpuTypeTest(runTimeList,wholeTimeList));
+            Future<?> future = threadPool.submit(new IOTypeTest(runTimeList,wholeTimeList));
             futureList.add(future);
         }
 
