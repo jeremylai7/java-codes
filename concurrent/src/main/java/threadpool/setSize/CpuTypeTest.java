@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * @author: laizc
  * @date: created in 2022/6/13
- * @desc:
+ * @desc: cpu 密集计算
  **/
 public class CpuTypeTest implements Runnable{
 
@@ -27,11 +27,6 @@ public class CpuTypeTest implements Runnable{
     @Override
     public void run() {
         long start = System.currentTimeMillis();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         countPrimes(1,1000000);
         long end = System.currentTimeMillis();
         long wholeTime = end - initStarTime;
