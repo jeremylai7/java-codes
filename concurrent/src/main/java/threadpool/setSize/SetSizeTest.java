@@ -12,7 +12,7 @@ import java.util.concurrent.*;
  **/
 public class SetSizeTest {
 
-    private static int coreSize = 26;
+    private static int coreSize = 6;
 
     private static ThreadPoolExecutor threadPool = new ThreadPoolExecutor(coreSize,coreSize,10, TimeUnit.SECONDS,new ArrayBlockingQueue<>(1000),new ThreadPoolExecutor.DiscardOldestPolicy());
 
@@ -26,8 +26,8 @@ public class SetSizeTest {
         Vector<Long> runTimeList = new Vector<>();
 
         for (int i = 0; i < requestNum; i++) {
-            //Future<?> future = threadPool.submit(new CpuTypeTest(runTimeList,wholeTimeList));
-            Future<?> future = threadPool.submit(new IOTypeTest(runTimeList,wholeTimeList));
+            Future<?> future = threadPool.submit(new CpuTypeTest(runTimeList,wholeTimeList));
+            //Future<?> future = threadPool.submit(new IOTypeTest(runTimeList,wholeTimeList));
             futureList.add(future);
         }
 
