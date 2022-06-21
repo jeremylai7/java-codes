@@ -7,6 +7,7 @@ import java.util.List;
  * @author: laizc
  * @date: created in 2022/6/14
  * @desc: IO 密集型计算
+ * vm args -Xms4g -Xmx4g
  **/
 public class IOTypeTest implements Runnable{
     // 整体执行时间，包括在队列中等待的时间
