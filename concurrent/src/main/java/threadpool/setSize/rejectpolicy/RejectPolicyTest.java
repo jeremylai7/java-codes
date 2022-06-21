@@ -38,13 +38,14 @@ public class RejectPolicyTest {
         //RejectedExecutionHandler handler = new ThreadPoolExecutor.CallerRunsPolicy();
         // 丢弃阻塞队列的最老的任务，并将新的任务加入到阻塞队列中
         RejectedExecutionHandler handler = new ThreadPoolExecutor.DiscardOldestPolicy();
+        MyRejected myRejected = new MyRejected();
         ThreadPoolExecutor threadPool = new ThreadPoolExecutor(corePoolSize,
                 maximumPoolSize,
                 keepAliveTime,
                 unit,
                 workQueue,
                 threadFactory,
-                handler);
+                myRejected);
         for (int i = 1; i <= 5 ; i++) {
             try {
                 threadPool.execute(new TaskThread(i));

@@ -25,4 +25,7 @@ public class TaskThread implements Runnable{
         }
     }
 
+    public int getI() {
+        return i;
+    }
 }
