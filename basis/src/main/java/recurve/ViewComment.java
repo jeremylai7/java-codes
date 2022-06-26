@@ -42,13 +42,13 @@ public class ViewComment {
     private List<ViewComment> children = new ArrayList<>();
 
     public static void main(String[] args) {
-        List<ViewComment> commentList = new ArrayList<>();
-        ViewComment comment1 = new ViewComment(1,-1,"我是留言1");
-        ViewComment comment2 = new ViewComment(2,-1,"我是留言2");
-        ViewComment comment3 = new ViewComment(3,1,"回复留言1");
-        ViewComment comment4 = new ViewComment(4,1,"回复留言1");
-        ViewComment comment5 = new ViewComment(5,2,"回复留言2");
-        ViewComment comment6 = new ViewComment(6,3,"回复留言3");
+        List<Comment> commentList = new ArrayList<>();
+        Comment comment1 = new Comment(1,-1,"我是留言1");
+        Comment comment2 = new Comment(2,-1,"我是留言2");
+        Comment comment3 = new Comment(3,1,"回复留言1");
+        Comment comment4 = new Comment(4,1,"回复留言1");
+        Comment comment5 = new Comment(5,2,"回复留言2");
+        Comment comment6 = new Comment(6,3,"回复留言3");
         commentList.add(comment1);
         commentList.add(comment2);
         commentList.add(comment3);
@@ -57,7 +57,7 @@ public class ViewComment {
         commentList.add(comment6);
         List<ViewComment> viewCommentList = new ArrayList<>();
         //添加非回复评论
-        for (ViewComment comment : commentList) {
+        for (Comment comment : commentList) {
             if (comment.getParentId() == -1) {
                 ViewComment viewComment = new ViewComment();
                 BeanUtils.copyProperties(comment,viewComment);
@@ -75,8 +75,8 @@ public class ViewComment {
 
     }
 
-    private static void add(ViewComment rootViewComment, List<ViewComment> commentList) {
-        for (ViewComment comment : commentList) {
+    private static void add(ViewComment rootViewComment, List<Comment> commentList) {
+        for (Comment comment : commentList) {
             if (rootViewComment.getId().equals(comment.getParentId())) {
                 ViewComment viewComment = new ViewComment();
                 BeanUtils.copyProperties(comment,viewComment);
