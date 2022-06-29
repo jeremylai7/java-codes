@@ -15,12 +15,6 @@ public class ViewComment {
 
     public ViewComment() {}
 
-    public ViewComment(Integer id,Integer parentId,String message) {
-        this.id = id;
-        this.parentId = parentId;
-        this.message = message;
-    }
-
     /**
      * id
      */
@@ -43,12 +37,12 @@ public class ViewComment {
 
     public static void main(String[] args) {
         List<Comment> commentList = new ArrayList<>();
-        Comment comment1 = new Comment(1,-1,"我是留言1");
-        Comment comment2 = new Comment(2,-1,"我是留言2");
-        Comment comment3 = new Comment(3,1,"回复留言1");
-        Comment comment4 = new Comment(4,1,"回复留言1");
-        Comment comment5 = new Comment(5,2,"回复留言2");
-        Comment comment6 = new Comment(6,3,"回复留言3");
+        Comment comment1 = new Comment(1,-1,"留言1");
+        Comment comment2 = new Comment(2,-1,"留言2");
+        Comment comment3 = new Comment(3,1,"留言3，回复留言1");
+        Comment comment4 = new Comment(4,1,"留言4，回复留言1");
+        Comment comment5 = new Comment(5,2,"留言5，回复留言2");
+        Comment comment6 = new Comment(6,3,"留言6，回复留言3");
         commentList.add(comment1);
         commentList.add(comment2);
         commentList.add(comment3);
