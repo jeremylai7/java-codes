@@ -12,7 +12,8 @@ public class VisibilityTest {
     private static long count = 0;
 
     private void add10K() {
-        int idx = 0; while(idx++ < 10000) {
+        int idx = 0;
+        while(idx++ < 10000) {
             count += 1;
         }
     }
