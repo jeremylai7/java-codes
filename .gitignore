@@ -23,3 +23,9 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+/basis/target/
+/collection/target/
+/concurrent/target/
+/data-structure-algorithm/target/
+/design-pattern/target/
+/encryption-algorithm/target/
