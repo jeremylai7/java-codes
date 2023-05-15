@@ -24,10 +24,5 @@ public class Test {
         String privateKeyDecrypt =  RsaUtil.privateKeyDecrypt(privateKey,publicKeyEncrypt);
         System.out.println("私钥解密：" + privateKeyDecrypt);
 
-        // 私钥加密  公钥解密
-
-
-
-
     }
 }
