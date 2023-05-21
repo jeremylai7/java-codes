@@ -34,15 +34,15 @@ public class VisibilityTest {
         System.out.println(count);
     }
 
-    private static volatile boolean flag = true;
-    //private static boolean flag = true;
+    //private static volatile boolean  flag = true;
+    private static boolean flag = true;
 
     @Test
     public void test2() {
         new Thread1().start();
         try {
             // 暂停一秒，保证线程1 启动并运行
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
