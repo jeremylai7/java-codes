@@ -17,11 +17,6 @@ public class FactoryDemo {
         Calendar calendar = Calendar.getInstance();
         Date date = calendar.getTime();
         System.out.println(date);
-
-
-
-
-
     }
 
 }
