@@ -7,7 +7,7 @@ import java.util.List;
  * @Author: laizc
  * @Date: Created in  2021-09-28
  * @desc: Java堆溢出
- * VM Args： -Xms20m -Xmx20m
+ * VM Args： -Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError
  */
 public class HeapOOM {
 

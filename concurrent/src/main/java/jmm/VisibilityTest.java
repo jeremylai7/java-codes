@@ -34,18 +34,14 @@ public class VisibilityTest {
         System.out.println(count);
     }
 
-    //private static volatile boolean  flag = true;
-    private static boolean flag = true;
+    private static volatile boolean  flag = true;
+    //private static boolean flag = true;
 
     @Test
-    public void test2() {
+    public void test2() throws InterruptedException {
         new Thread1().start();
-        try {
-            // 暂停一秒，保证线程1 启动并运行
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        // 暂停一秒，保证线程1 启动并运行
+        Thread.sleep(1000);
         new Thread2().start();
 
     }
@@ -65,16 +61,12 @@ public class VisibilityTest {
 
         @Override
         public void run() {
-            /*try {
-                // 休眠两秒
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }*/
             System.out.println("thread-2 run");
             flag = false;
             System.out.println("flag 改成 false");
         }
     }
+
+
 
 }
