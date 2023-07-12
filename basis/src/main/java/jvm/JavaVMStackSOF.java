@@ -3,7 +3,7 @@ package jvm;
 /**
  * @Author: laizc
  * @Date: Created in  2021-09-28
- * @desc: 虚拟机栈和本地方法栈溢出
+ * @desc: 虚拟机栈和本地方法栈溢出 限制栈大小 -Xss，不断增大栈帧深度
  * VM Args: -Xss128k
  */
 public class JavaVMStackSOF {
@@ -11,7 +11,7 @@ public class JavaVMStackSOF {
 	private int stackLength = 1;
 
 	public void stackLeak() {
-		stackLength++;
+		//stackLength++;
 		stackLeak();
 	}
 
