@@ -8,6 +8,7 @@ import java.util.List;
  * @Date: Created in  2021-09-29
  * @desc: 方法区和运行时常量池内存溢出
  * VM Args: -XX:PermSize=10M -XX:MaxPermSize=10M
+ * jdk 1.8 -Xmx6m
  */
 public class RuntimeConstantPoolOOM {
 
