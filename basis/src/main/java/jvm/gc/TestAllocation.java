@@ -13,6 +13,7 @@ public class TestAllocation {
     private static final int _1MB = 1024 * 1024;
 
     // 最开始分配到 eden 区，等到分配到 allocation4 时，eden 以及占了6m，剩下2m，不够分配给 allocation4 所需内存 4m
+    // 只能将年轻代数据转移到老年代中
     public static void main(String[] args) {
         byte[] allocation1,allocation2,allocation3,allocation4;
         allocation1 = new byte[2 * _1MB];
