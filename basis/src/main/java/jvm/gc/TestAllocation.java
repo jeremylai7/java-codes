@@ -22,6 +22,7 @@ public class TestAllocation {
         //内存不够，此时发生 Minor GC
         allocation4 = new byte[4 * _1MB];
 
+
     }
 
 }
