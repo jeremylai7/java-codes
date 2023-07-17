@@ -4,7 +4,7 @@ package jvm.gc;
  * @author: laizc
  * @date: created in 2023/7/16
  * @desc: 新生代 minor GC
- * -verbose:gc -Xms20 -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8
+ * -verbose:gc -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8
  *   堆20m   新生代10m 老年代10m   eden区 8m  from space：1m   to space:1m
  *
  **/
