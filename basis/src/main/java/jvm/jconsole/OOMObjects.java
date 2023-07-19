@@ -8,7 +8,7 @@ import java.util.List;
  * @Date: Created in  2022-03-28
  * @desc: 内存监控 -Xms100m -Xmx100m -XX:+UseSerialGC
  *    堆 100m yong区占 1/3，大概 33m,eden 区占 yong 区 8/10 大概 27m
- *    开始往 eden 区填充数据，达到最大值 27，就发生 yong gc 数据保存到老年代中
+ *    开始往 eden 区填充数据，达到最大值 27，就发生 yong gc gc 数据之后， eden空间不够，只能转移到老年代中
  *    最后执行 gc 也是 full gc，eden 区和 survive 区都清空。老年代还有数据、因为 list 引用对象还存活
  *    System.gc() 放在最外面，old 也会清空
  *
