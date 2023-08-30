@@ -11,7 +11,8 @@ public class SingletonTest {
         // 编译报错，因为 Singleton 构造函数是私有的
         //Singleton singleton = new Singleton();
 
-        Singleton singleton = Singleton.getInstance();
-        singleton.print();
+        SnGenerator snGenerator = SnGenerator.getInstance();
+        long sn = snGenerator.getSn();
+        System.out.println(sn);
     }
 }
