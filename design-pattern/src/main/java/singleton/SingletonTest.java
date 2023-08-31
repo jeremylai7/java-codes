@@ -12,7 +12,9 @@ public class SingletonTest {
         //Singleton singleton = new Singleton();
 
         SnGenerator snGenerator = SnGenerator.getInstance();
-        long sn = snGenerator.getSn();
-        System.out.println(sn);
+        for (int i = 0; i < 10; i++) {
+            System.out.println(snGenerator.getSn());
+        }
+
     }
 }
