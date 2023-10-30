@@ -62,7 +62,7 @@ public class CpuTypeTest implements Runnable{
      */
     public int countPrimes(final int lower,final int upper) {
         int total = 0;
-        for (int i = 0; i <= upper; i++) {
+        for (int i = lower; i <= upper; i++) {
             if (isPrime(i)) {
                 total++;
             }
