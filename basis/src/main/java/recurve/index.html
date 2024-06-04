@@ -12,6 +12,28 @@
 	<div id="app">
   		<el-tree :data="aaaa" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
 	</div>
+	<div>
+		<template>
+			<el-table
+					:data="tableData"
+					style="width: 100%">
+				<el-table-column
+						prop="date"
+						label="日期"
+						width="180">
+				</el-table-column>
+				<el-table-column
+						prop="name"
+						label="姓名"
+						width="180">
+				</el-table-column>
+				<el-table-column
+						prop="address"
+						label="地址">
+				</el-table-column>
+			</el-table>
+		</template>
+	</div>
 	
 <script type="text/javascript">
 	function handleNodeClick(data) {
@@ -23,20 +45,20 @@
 	  data: {
 	    message: 'Hello Vue!',
 	    aaaa:[{
-          label: '留言1',
+          label: '业务部',
           children: [{
-            label: '留言3，回复留言1',
+            label: '华南部',
             children: [{
-              label: '留言6，回复留言3'
+              label: '华南一部'
             }]
           },{
-            label: '留言4，回复留言1'
+            label: '华东部'
             
           }]
         }, {
-          label: '留言2',
+          label: '技术部',
           children: [{
-            label: '留言5，回复留言2'
+            label: '技术一部'
             
           }]
         }],

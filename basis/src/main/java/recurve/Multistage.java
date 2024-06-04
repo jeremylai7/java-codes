@@ -5,9 +5,9 @@ package recurve;
  * @date: created in 2022/6/26
  * @desc: 评论
  **/
-public class Comment {
+public class Multistage {
 
-    public Comment(Integer id,Integer parentId,String message) {
+    public Multistage(Integer id, Integer parentId, String message) {
         this.id = id;
         this.parentId = parentId;
         this.message = message;
