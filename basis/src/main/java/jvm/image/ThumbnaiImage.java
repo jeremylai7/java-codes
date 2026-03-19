@@ -46,6 +46,15 @@ public class ThumbnaiImage {
                     .asBufferedImage();
             list.add(img);
             System.out.println(i);
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            try {
+                ImageIO.write(img, "jpg", os);
+            } catch (IOException e) {
+                System.out.println("图片过大，无法写入内存");
+                continue;
+            }
+            ByteArrayInputStream inputStream = new ByteArrayInputStream(os.toByteArray());
+            System.out.println("正常处理第" + i + "张图片");
         }
     }
 
