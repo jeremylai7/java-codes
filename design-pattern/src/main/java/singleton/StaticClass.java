@@ -10,10 +10,10 @@ public class StaticClass {
     private StaticClass() {}
 
     private static class SingletonHolder {
-        private static final SingletonHolder INSTANCE = new SingletonHolder();
+        private static final StaticClass INSTANCE = new StaticClass();
     }
 
-    public static final SingletonHolder getInstance() {
+    public static StaticClass getInstance() {
         return SingletonHolder.INSTANCE;
     }
 }
