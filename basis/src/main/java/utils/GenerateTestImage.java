@@ -19,53 +19,66 @@ import java.util.Random;
  */
 public class GenerateTestImage {
 
-    public static void main(String[] args) throws IOException {
-        createJpgWithTargetSize("test_1m.jpg", 1 * 1024 * 1024);
+    public static void main(String[] args) throws Exception {
+        // 生成指定大小的jpg图片，只生成一次,后续生成再放开
+        /*createJpgWithTargetSize("test_1m.jpg", 1 * 1024 * 1024);
         createJpgWithTargetSize("test_10m.jpg", 10 * 1024 * 1024);
-        createJpgWithTargetSize("test_20m.jpg", 20 * 1024 * 1024);
+        createJpgWithTargetSize("test_30m.jpg", 30 * 1024 * 1024);*/
+
+        //1m
+        //https://unify-test-meeting-1321732912.cos.ap-guangzhou.myqcloud.com/202603191112163858563.jpg
+
+        //10m
+        //https://unify-test-meeting-1321732912.cos.ap-guangzhou.myqcloud.com/202603191113538681533.jpg
+
+        //30m
+        //https://unify-test-meeting-1321732912.cos.ap-guangzhou.myqcloud.com/202603191131519767146.jpg
+
     }
 
-    private static void createJpgWithTargetSize(String outputPath,long targetByte) throws IOException {
+    public static void createJpgWithTargetSize(String outputPath, long targetBytes) throws Exception {
         int width = 2000;
         int height = 2000;
+
         BufferedImage image;
         byte[] data;
+
         while (true) {
             image = createRandomImage(width, height);
             data = compressJpg(image, 1.0f);
-            if (data.length <= targetByte * 0.9) {
+
+            if (data.length >= targetBytes * 0.9) {
                 break;
             }
+
             width += 500;
             height += 500;
         }
-        float low = 0.0f;
+
+        float low = 0.1f;
         float high = 1.0f;
         byte[] best = data;
+
         for (int i = 0; i < 20; i++) {
             float mid = (low + high) / 2;
             byte[] temp = compressJpg(image, mid);
-            if (Math.abs(temp.length - targetByte) < Math.abs(best.length - targetByte)) {
+
+            if (Math.abs(temp.length - targetBytes) < Math.abs(best.length - targetBytes)) {
                 best = temp;
             }
-            if (temp.length > targetByte) {
+
+            if (temp.length > targetBytes) {
                 high = mid;
             } else {
                 low = mid;
             }
-            try(FileOutputStream fileOutputStream = new FileOutputStream(outputPath)) {
-                fileOutputStream.write(best);
-            }
-            System.out.println(outputPath + " =>: " + best.length + " bytes");
-
-
         }
 
+        try (FileOutputStream fos = new FileOutputStream(outputPath)) {
+            fos.write(best);
+        }
 
-
-
-
-
+        System.out.println(outputPath + " => " + best.length + " bytes");
     }
 
     private static BufferedImage createRandomImage(int width, int height) {
