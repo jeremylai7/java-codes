@@ -8,7 +8,6 @@ package utils;
 public class GitTest {
 
     private void aa() {
-        // 这是第一个提交，第二次提交
-        // 这是第二个提交
+        // 这是第一个提交
     }
 }
